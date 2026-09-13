@@ -111,7 +111,7 @@ export default class Proxy {
       // If less than 10% of proxies are bad, don't bother restoring them
       return;
     }
-    if (fractionBad > 0.25) {
+    if (fractionBad > 0.5) {
       // Notify
       Discord.sendMessageWithLimit(
         "proxy-bad",
