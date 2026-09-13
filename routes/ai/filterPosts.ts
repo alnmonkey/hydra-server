@@ -4,6 +4,7 @@ import { aiClient } from "../../utils/models";
 import { ai_provider } from "../../utils/models";
 import { generateText } from "ai";
 import { AIUsage, type ModelId } from "../../services/AIUsage";
+import { jsonrepair } from "jsonrepair";
 
 let providerConfig = {};
 
@@ -106,7 +107,8 @@ export async function filterPosts(req: Request) {
     providerOptions: providerConfig,
   });
 
-  const output = responseSchema.safeParse(JSON.parse(text)).data ?? {};
+  const output =
+    responseSchema.safeParse(JSON.parse(jsonrepair(text))).data ?? {};
 
   await AIUsage.trackUsage(customerId, MODEL_ID, usage);
 

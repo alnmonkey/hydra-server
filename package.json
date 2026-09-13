@@ -29,6 +29,7 @@
     "ai": "^7.0.52",
     "drizzle-orm": "0.45.2",
     "expo-server-sdk": "^3.14.0",
+    "jsonrepair": "^3.15.0",
     "zod": "^4.4.3"
   }
 }
